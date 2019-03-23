@@ -1,18 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Zombies</h1>
-
 
 <div class="row">
   <% @zombies.each do |zombie| %>
   <div class="col-sm-6 col-md-4">
-    <div class="card">
+    <div class="card m-3">
       <div class="card-body">
       <%= image_tag zombie.photo, class: 'img-fluid'%>
         <div class="card-title">
           <h2>Nombre: <%= zombie.name %></h2>
           <strong><p>Muertes: <%= zombie.killed %></p></strong>
           <strong><p>Vida: <%= zombie.health %></p></strong>
+          <strong><p>Dueño: <%= zombie.user.email if zombie.user %></p></strong>
           <p><%= link_to 'Show', zombie, class: 'btn btn-info' %>
           <%= link_to 'Edit', edit_zombie_path(zombie), class: 'btn btn-warning' %>
           <%= link_to 'Destroy', zombie, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></p>
@@ -26,4 +24,4 @@
 
 <br>
 
-<p class="m-1"><%= link_to 'New Zombie', new_zombie_path, class: 'btn btn-primary' %></p>
+<p class="m-1 text-center"><%= link_to 'New Zombie', new_zombie_path, class: 'btn btn-primary btn-lg' %></p>
